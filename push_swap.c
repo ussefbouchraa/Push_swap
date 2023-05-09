@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:59:06 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/09 11:46:43 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:25:45 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,50 +38,40 @@ char	**split_args(char **av, int words)
 
 	return (args);
 }
-	
+
 void	check_args(char **args)
 {
 	int i;
 	int j;
-	
+
 	i = -1;
 	while (args[++i])
 	{
-		if (ft_isdigit(args[i]))
+		if (!ft_isdigit(args[i]))
+			ft_clear(args);
+		if ((ft_atoi(args[i]) > INT_MAX) || (ft_atoi(args[i]) < INT_MIN) )
+			ft_clear(args);
+		j = i;	
+		while (args[++j])
 		{
-			write(2, "ERROR_DIGITS", 13);
-			exit(1);
+			if (ft_atoi(args[i]) == ft_atoi(args[j]))
+				ft_clear(args);
 		}
-	j = i ;	
-	while (args[++j])
-	{
-		if (ft_atoi(args[i]) == ft_atoi(args[j]))
-		{
-			write(2, "ERROR_DUP", 10);
-			exit(1);
-		}
+		printf("%ld\n",ft_atoi(args[i]));
 	}
-		printf("%d\n",ft_atoi(args[i]));
-	}
-}	
-
-	
+}
 int	main(int ac, char **av)
 {
+	
 	char **args;
 	int words;
 
 	words = 0;
 
 	if (ac < 2)
-	{
-		write(1, "ERRORR\n", 7);
-		exit(1);
-	}
+		return (0);
 	words = nbr_args(av);
 	args = split_args(av, words);
 	check_args(args);
 
-	
-	
 }

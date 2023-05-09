@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:26:27 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/09 10:54:53 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:57:33 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 int ft_isdigit(char *s)
 {
     if (!*s)
-        return (1);
+        return (0);
     while (*s)
     {
         if (*s == '+' || *s == '-')
             s++;
         if (!(*s >= '0' && *s <= '9'))
-            return (1);
+            return (0);
         s++;
     }
-    return (0);
+    return (1);
 }

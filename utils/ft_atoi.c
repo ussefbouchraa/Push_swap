@@ -6,15 +6,15 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:26:59 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/06 05:28:47 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/09 17:13:29 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_atoi(char *s)
+long ft_atoi(char *s)
 {
-    int res;
+    long res;
     int sign;
 
     res = 0;
