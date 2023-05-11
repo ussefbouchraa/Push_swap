@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 05:26:27 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/10 21:52:53 by ybouchra         ###   ########.fr       */
+/*   Created: 2023/05/10 23:57:08 by ybouchra          #+#    #+#             */
+/*   Updated: 2023/05/11 00:31:15 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-int ft_isdigit(char *s)
+int main()
 {
-    if (!*s)
-        return (0);
-    while (*s)
+
+    char *p;
+    char *res;
+    int i;
+    int len;
+
+    i = -1;
+    len = 0;
+    p = "000011";
+
+    while (p[++i])
     {
-        if (*s == '+' || *s == '-')
-            s++;
-        if (!(*s >= '0' && *s <= '9'))
+        if (p[i] == '0')
+            len++;
+        else
+        {
+            p = p + len;
+            printf("%s", p);
             return (0);
-        s++;
+        }
     }
-    return (1);
 }
