@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "push_swap.h": "c",
+        "memory": "c",
+        "utility": "c",
+        "iterator": "c"
+    }
+}

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 05:26:27 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/21 00:24:49 by ybouchra         ###   ########.fr       */
+/*   Created: 2023/05/22 02:24:40 by ybouchra          #+#    #+#             */
+/*   Updated: 2023/05/22 02:30:40 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_isdigit(char *s)
+int ft_lstsize(t_list *lst)
 {
+    int len;
 
-    if (*s == '+' || *s == '-' )
-        s++;
-    if(!*s)
-        return(0);
-    while (*s)
+    len = 0;
+    while (lst)
     {
-        if (!(*s >= '0' && *s <= '9'))
-            return (0);
-        s++;
+        len++;
+        lst = lst->next;
     }
-    return (1);
+    return (len);
 }

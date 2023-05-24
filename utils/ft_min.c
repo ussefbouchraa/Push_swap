@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 05:26:27 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/21 00:24:49 by ybouchra         ###   ########.fr       */
+/*   Created: 2023/05/22 23:42:07 by ybouchra          #+#    #+#             */
+/*   Updated: 2023/05/22 23:45:03 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_isdigit(char *s)
+int ft_min(t_list *lst)
 {
+    int min;
+    min = lst->content;
 
-    if (*s == '+' || *s == '-' )
-        s++;
-    if(!*s)
-        return(0);
-    while (*s)
+    while(lst)
     {
-        if (!(*s >= '0' && *s <= '9'))
-            return (0);
-        s++;
+        if(lst->content < min)
+            min = lst->content;
+        lst = lst->next;
     }
-    return (1);
+    return(min);
 }

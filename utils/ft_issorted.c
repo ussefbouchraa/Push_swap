@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_issorted.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 05:26:27 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/21 00:24:49 by ybouchra         ###   ########.fr       */
+/*   Created: 2023/05/22 22:56:31 by ybouchra          #+#    #+#             */
+/*   Updated: 2023/05/23 02:15:13 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_isdigit(char *s)
+int ft_issorted(t_list *lst)
 {
-
-    if (*s == '+' || *s == '-' )
-        s++;
-    if(!*s)
-        return(0);
-    while (*s)
-    {
-        if (!(*s >= '0' && *s <= '9'))
-            return (0);
-        s++;
-    }
-    return (1);
+	t_list *container;
+	int item;
+	
+	while(lst->next)
+	{
+		item = lst->content; 
+		
+		container = lst->next;
+		while(container)
+		{
+			if(item > container->content)
+			return(0);
+				
+			container = container->next;
+		}	
+		lst = lst->next;
+	}
+	return(1);
+		
 }
+
+// [2 5 3]
