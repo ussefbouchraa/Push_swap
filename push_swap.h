@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:49:37 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/24 01:42:35 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/28 09:39:06 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 typedef struct s_stack1
 {
     int content;
+    int pos;
     struct s_stack1 *next;
 }   t_list;
 
@@ -55,7 +56,7 @@ void    ss(t_list *lst_a, t_list *lst_b);
 
 void    ra(t_list *lst_a, int msg);
 void    rb(t_list *lst_b, int msg);
-void    rr(t_list *lst_a, t_list *lst_b);
+void    rr(t_list *lst_a, t_list *lst_b, int msg);
 
 void    rra(t_list **lst_a, int msg);
 void    rrb(t_list **lst_b, int msg);
@@ -65,8 +66,10 @@ void    pa(t_list **lst_a ,t_list **lst_b, int msg);
 void    pb(t_list **lst_a ,t_list **lst_b, int msg);
 
 void    sort_of_three(t_list **lst,int max, int min);
-void	sort_of_five(t_list **lst_a, t_list **lst_b);
-void    ft_print(t_list *lst_a, t_list *lst_b);
+void	sort_of_four(t_list **lst_a, t_list **lst_b, int min);
+void	sort_of_five(t_list **lst_a, t_list **lst_b, int min);
+void	sort_all(t_list **lst_a, t_list **lst_b, int size);
 
+void    ft_print(t_list *lst_a, t_list *lst_b);
 
 #endif

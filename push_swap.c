@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:59:06 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/24 04:38:57 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/28 09:03:28 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,19 +105,62 @@ void instructs(t_list **lst_a, t_list **lst_b, int size)
 			sa(*lst_a, 1);
 		else if (size == 3)
 			sort_of_three(lst_a, ft_max(*lst_a), ft_min(*lst_a));
-		else if (size == 4 || size == 5)
-			sort_of_five(lst_a, lst_b);
+		else if (size == 4)
+			sort_of_four(lst_a, lst_b, ft_min(*lst_a));
+		else if (size == 5)
+			sort_of_five(lst_a, lst_b, ft_min(*lst_a));
+		else
+			sort_all(lst_a, lst_b, size);
 
 	}
 }
+int get_min(t_list *lst)
+{
+	int min;
 
+	min = ft_max(lst);
+	while (lst)
+	{
+		if (lst->content < min && lst->pos == -1)
+			min = lst->content;
+		lst = lst->next;
+	}
+	return (min);
+}
+
+void init_pos(t_list *lst_a)
+{
+	t_list *container;
+	t_list *loop;
+	int pos;
+
+	pos = -1;
+
+	loop = lst_a;
+	while (loop)
+	{
+		container = lst_a;
+		while (container->content != get_min(lst_a))
+			container = container->next;
+		container->pos = ++pos;
+
+		loop = loop->next;
+	}
+}
+
+void ll()
+{
+	system("leaks push_swap");
+}
 int main(int ac, char **av)
 {
 	t_list	*lst_a;
 	t_list	*lst_b;
 	char	**args;
 	int		words;
+	int 	i;
 
+	// atexit(ll);
 	lst_a = NULL;
 	lst_b = NULL;
 	
@@ -127,19 +170,17 @@ int main(int ac, char **av)
 	args = split_args(av, words); 
 	check_args(args); 
 
-
-
-	int i = -1;
+	i = -1;
 	while (args[++i])
 		ft_lstadd_back(&lst_a, ft_lstnew((int)ft_atoi(args[i])));
-	
-	instructs(&lst_a, &lst_b, ft_lstsize(lst_a));
-	
-
-	if (ft_issorted(lst_a))
-		write(1 ,"\nOK\n", 4);	
 		
-		ft_print(lst_a, lst_b);
+	init_pos(lst_a);
+	instructs(&lst_a, &lst_b, ft_lstsize(lst_a));
 
+
+	
+	if (ft_issorted(lst_a))
+		write(1 ,"\nOK\n", 4);
+		ft_print(lst_a, lst_b);
 }
 

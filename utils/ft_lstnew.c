@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:41:01 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/21 00:09:05 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/28 04:28:07 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 void *ft_lstnew(int content)
 {
 	t_list *head;
-   
+
 	head = malloc(sizeof(t_list));
 	if(!head)
 		return(NULL);
-		
 	head->content = content;
+	head->pos = -1;
 	head->next = NULL;
 	return head;
 }

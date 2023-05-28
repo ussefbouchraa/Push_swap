@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 18:52:11 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/24 04:36:44 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/28 09:43:34 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,35 @@
 void    sa(t_list *lst, int msg)
 {
     int tmp;
+    int tmp_pos;
     if (!lst)
         return;
     tmp = lst->content;
+    tmp_pos =lst->pos;
+    
     lst->content = (lst->next)->content;
+    lst->pos = (lst->next)->pos;
+    
     (lst->next)->content = tmp;
+    (lst->next)->pos = tmp_pos;
     if(msg == 1)
         write(1,"sa\n",4);
 }
 void    sb(t_list *lst_b, int msg)
 {
     int tmp;
+    int tmp_pos;
+    
     if (!lst_b)
         return;
     tmp = lst_b->content;
+    tmp_pos =lst_b->pos;
+  
     lst_b->content = (lst_b->next)->content;
+    lst_b->pos = (lst_b->next)->pos;
     (lst_b->next)->content = tmp;
+    (lst_b->next)->pos = tmp_pos;
+
     if(msg == 1)
         write(1,"sb\n",4);
 }
@@ -39,7 +52,7 @@ void    ra(t_list *lst, int msg)
 {
     t_list *container;
 
-    if (!lst)
+    if (!lst || !lst->next)
         return;
     container = lst;
     while (container->next)

@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC = cc -Wall -Wextra -Werror
+CC = cc -Wall -Wextra -Werror -g
 RM = rm -rf 
 
 FILES =  utils/ft_isspace.c utils/ft_issorted.c utils/ft_max.c utils/ft_min.c utils/ft_clear.c utils/ft_isdigit.c \
