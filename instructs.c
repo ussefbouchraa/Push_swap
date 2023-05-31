@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 18:52:11 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/28 09:43:34 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:04:02 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,57 +27,49 @@ void    sa(t_list *lst, int msg)
     (lst->next)->content = tmp;
     (lst->next)->pos = tmp_pos;
     if(msg == 1)
-        write(1,"sa\n",4);
+        write(1,"sa\n",3);
+    if(msg == 2)
+        write(1,"sb\n",3);
 }
-void    sb(t_list *lst_b, int msg)
+
+
+void    ra(t_list **lst, int msg)
 {
-    int tmp;
-    int tmp_pos;
-    
-    if (!lst_b)
+    t_list *itr;
+
+    if (!lst || !*lst || !(*lst)->next)
         return;
-    tmp = lst_b->content;
-    tmp_pos =lst_b->pos;
+    itr = *lst;
+    (*lst) = (*lst)->next;
+    itr->next = NULL;
+    ft_lstadd_back(lst, itr);
   
-    lst_b->content = (lst_b->next)->content;
-    lst_b->pos = (lst_b->next)->pos;
-    (lst_b->next)->content = tmp;
-    (lst_b->next)->pos = tmp_pos;
-
     if(msg == 1)
-        write(1,"sb\n",4);
+         write(1,"ra\n",3);
+    if(msg == 2)
+        write(1,"rb\n",3);
 }
 
-void    ra(t_list *lst, int msg)
+void pa(t_list **lst_a, t_list **lst_b, int msg)
 {
-    t_list *container;
-
-    if (!lst || !lst->next)
+    if (!*lst_b)
         return;
-    container = lst;
-    while (container->next)
-    {
-        sa(container, 0);
-        container = container->next;
-    }
-    if(msg == 1)
-         write(1,"ra\n",4);
-}
 
-void    rb(t_list *lst_b,int msg)
-{
-    t_list *container;
+    t_list *tmp_a;
+    t_list *tmp_b;
+       
+    tmp_a = *lst_a;
+    tmp_b = *lst_b;
+    
+    *lst_a = tmp_b;
 
-    if (!lst_b)
-        return;
-    container = lst_b;
-    while (container->next)
-    {
-        sb(container, 0);
-        container = container->next;
-    }
-    if(msg == 1)
-        write(1,"rb\n",4);
+    *lst_b = (*lst_b)->next;
+    tmp_b->next = tmp_a;
+    
+    if (msg == 1)
+        write(1, "pa\n", 3);
+    if(msg == 2)
+        write(1, "pb\n", 3);
 }
 
 void    rra(t_list **lst, int msg)
@@ -98,26 +90,9 @@ void    rra(t_list **lst, int msg)
     *lst = last;
     if(msg == 1)
         write(1, "rra\n", 4);
-}
-
-void    rrb(t_list **lst_b, int msg)
-{
-    t_list *container;
-    t_list *last;
-
-    if (!lst_b)
-        return;
-    container = *lst_b;
-    while (container->next->next)
-        container = container->next;
-
-    last = container->next;
-    container->next = NULL;
-    last->next = *lst_b;
-    *lst_b = last;
-    
-    if(msg == 1)
+    if(msg == 2)
         write(1, "rrb\n", 4);
 }
+
 
 

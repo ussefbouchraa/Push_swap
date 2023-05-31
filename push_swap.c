@@ -6,17 +6,11 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:59:06 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/28 09:03:28 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/31 13:40:34 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-
-
-
-
 
 char **split_args(char **av, int words)
 {
@@ -114,6 +108,7 @@ void instructs(t_list **lst_a, t_list **lst_b, int size)
 
 	}
 }
+
 int get_min(t_list *lst)
 {
 	int min;
@@ -177,8 +172,6 @@ int main(int ac, char **av)
 	init_pos(lst_a);
 	instructs(&lst_a, &lst_b, ft_lstsize(lst_a));
 
-
-	
 	if (ft_issorted(lst_a))
 		write(1 ,"\nOK\n", 4);
 		ft_print(lst_a, lst_b);

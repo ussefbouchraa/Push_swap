@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:49:37 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/28 09:39:06 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/30 19:05:51 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,12 @@ void    ft_lstadd_front(t_list **lst, t_list *new);
 void    ft_lstadd_back(t_list **lst, t_list *new);
 
 void    sa(t_list *lst_a, int msg);
-void    sb(t_list *lst_b, int msg);
-void    ss(t_list *lst_a, t_list *lst_b);
+void    ra(t_list **lst, int msg);
 
-void    ra(t_list *lst_a, int msg);
-void    rb(t_list *lst_b, int msg);
-void    rr(t_list *lst_a, t_list *lst_b, int msg);
+void    ss(t_list *lst_a, t_list *lst_b);
+void    rr(t_list **lst_a, t_list **lst_b, int msg);
 
 void    rra(t_list **lst_a, int msg);
-void    rrb(t_list **lst_b, int msg);
 void    rrr(t_list **lst_a, t_list **lst_b);
 
 void    pa(t_list **lst_a ,t_list **lst_b, int msg);
