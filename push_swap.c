@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:59:06 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/31 13:40:34 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/31 23:15:27 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,15 @@ char **split_args(char **av, int words)
 	while (av[++i])
 	{
 		if (!av[i][0] || ft_isspace(av[i]))
-		{
-			args[x] = NULL;
 			ft_clear(args);
-		}
+			// args[x] = NULL;
 		spl = ft_split(av[i], ' ');
 		j = 0;
 		while (spl[j])
 			args[x++] = spl[j++];
-
 		free(spl);
 	}
 	args[x] = NULL;
-
 	return (args);
 }
 
@@ -88,9 +84,6 @@ void check_args(char **args)
 	}
 }
 
-
-
-
 void instructs(t_list **lst_a, t_list **lst_b, int size)
 {
 	if (!(ft_issorted(*lst_a)))
@@ -105,8 +98,8 @@ void instructs(t_list **lst_a, t_list **lst_b, int size)
 			sort_of_five(lst_a, lst_b, ft_min(*lst_a));
 		else
 			sort_all(lst_a, lst_b, size);
-
 	}
+	
 }
 
 int get_min(t_list *lst)
@@ -167,13 +160,18 @@ int main(int ac, char **av)
 
 	i = -1;
 	while (args[++i])
+	{
 		ft_lstadd_back(&lst_a, ft_lstnew((int)ft_atoi(args[i])));
-		
+		free(args[i]);
+	}
+	free(args);
 	init_pos(lst_a);
 	instructs(&lst_a, &lst_b, ft_lstsize(lst_a));
-
-	if (ft_issorted(lst_a))
-		write(1 ,"\nOK\n", 4);
-		ft_print(lst_a, lst_b);
+			
+free_lnkedlist(&lst_a);
+free_lnkedlist(&lst_b);
+	// if (ft_issorted(lst_a))
+	// 	write(1 ,"\nOK\n", 4);
+		// ft_print(lst_a, lst_b);
 }
 

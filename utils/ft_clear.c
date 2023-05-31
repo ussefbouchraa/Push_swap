@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:31:28 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/18 20:05:21 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/31 23:13:50 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,15 @@ void ft_clear(char **arr)
     arr = NULL;
     exit(1);
 }
+  void free_lnkedlist(t_list ** lst)
+  {
+    if(!lst || !*lst)
+    return;
+    t_list *temp;
+	while(*lst)
+	{
+        temp = *lst;
+		*lst = (*lst)->next;
+		free(temp);
+	}
+  }

@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:49:37 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/30 19:05:51 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/31 23:11:01 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char    *ft_strdup(const char *s);
 
 void    ft_clear(char **arr);
+void    free_lnkedlist(t_list **lst);
 int     nbr_args(char **av);
 
 void    *ft_lstnew(int content);
@@ -60,7 +61,6 @@ void    rra(t_list **lst_a, int msg);
 void    rrr(t_list **lst_a, t_list **lst_b);
 
 void    pa(t_list **lst_a ,t_list **lst_b, int msg);
-void    pb(t_list **lst_a ,t_list **lst_b, int msg);
 
 void    sort_of_three(t_list **lst,int max, int min);
 void	sort_of_four(t_list **lst_a, t_list **lst_b, int min);
@@ -69,4 +69,5 @@ void	sort_all(t_list **lst_a, t_list **lst_b, int size);
 
 void    ft_print(t_list *lst_a, t_list *lst_b);
 
+int     ft_pos_max(t_list *lst);
 #endif

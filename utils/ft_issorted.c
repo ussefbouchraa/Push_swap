@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 22:56:31 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/28 09:18:41 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/31 13:47:06 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int ft_issorted(t_list *lst)
 	t_list *container;
 	int item;
 	if (!lst || !lst->next)
-		return (1);
+		return (0);
+
 	while(lst->next)
 	{
 		item = lst->content; 

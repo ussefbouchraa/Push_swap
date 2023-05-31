@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 04:15:34 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/31 13:40:00 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/05/31 21:37:56 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	sort_of_five(t_list **lst_a, t_list **lst_b, int min)
 		ra(lst_a, 1);
 	pa(lst_b, lst_a, 2);
 	
-	
 	if(!(ft_issorted(*lst_a)))
 		sort_of_four(lst_a, lst_b, ft_min(*lst_a));
 	pa(lst_a, lst_b, 1);
@@ -81,7 +80,7 @@ int	min_instruction(t_list *lst_b, int max, int size)
 	int demi_size = size / 2;
 	while (lst_b)
 	{
-		if (lst_b->content == max)
+		if (lst_b->pos == max)
 			return (1);
 		if (demi_size-- == 0)
 			return (0);
@@ -90,42 +89,112 @@ int	min_instruction(t_list *lst_b, int max, int size)
 	return (0);
 }
 
-void ft_pa(t_list **lst_a, t_list **lst_b, int size)
+// void ft_pa(t_list **lst_a, t_list **lst_b )
+// {
+// 	int size;
+// 	size = ft_lstsize(*lst_b);
+	
+// 	while (*lst_b)
+// 	{
+// 		int max =  ft_max(*lst_b);
+// 		if ((*lst_b)->content == max)
+// 		{
+// 			pa(lst_a, lst_b, 1);
+// 			size--;
+// 		}
+// 		else if (min_instruction(*lst_b, max, size))
+// 				ra(lst_b, 2);
+// 		else
+// 			rra(lst_b, 2);
+// 	}
+// }
+
+
+
+// top[22, 34 , 234 ,4543, 566 343325, 56, 2334, 45456, 2323 , 455] 
+int closest(int pos1, int pos2, int size)
 {
+	int ds;
+	int cost1;
+	int cost2;
+	
+	ds = size / 2;
+	if (pos2 == -1)
+		return (1);
+	if (pos1 > ds)
+		cost1 = size - pos1;
+	else 
+		cost1 = pos1;
+	if (pos2 > ds)
+		cost2 = size - pos2;
+	else
+		cost2 = pos2;
+	return (cost1 <= cost2);
+}
+
+int	get_closiest(t_list *lst, int um, int mx, int size)
+{
+	int pos1;
+	int pos2;
+	int i;
+
+	i = 0;
+	pos2 = -1;
+	while (lst)
+	{
+		if (lst->pos == mx)
+			pos1 = i;
+		if (lst->pos == um)
+			pos2 = i;
+		i++;
+		lst = lst->next;
+	}
+	// printf("pos1 %d, pos2 %d\n", pos1, pos2);
+	return (closest(pos1, pos2, size));
+}
+void ft_pa(t_list **lst_a, t_list **lst_b)
+{
+	int max;
+	int size;
+	int x;
 	size = ft_lstsize(*lst_b);
 	while (*lst_b)
 	{
-		int max =  ft_max(*lst_b);
-		if ((*lst_b)->content == max)
+		max =  ft_pos_max(*lst_b);
+		if ((x = get_closiest(*lst_b, max - 1, max, size)))
 		{
+			// printf("x:%d\n", x);
+			if (min_instruction(*lst_b, max, size))
+			{
+				while ((*lst_b)->pos != max)
+					ra(lst_b, 2);
+			}
+			else{
+				while ((*lst_b)->pos != max)
+					rra(lst_b, 2);
+			}
+			pa(lst_a, lst_b, 1);
+			size--;
+			if ((*lst_a)->next && (*lst_a)->content > (*lst_a)->next->content)
+				sa(*lst_a, 1);
+		}
+		else
+		{
+			if (min_instruction(*lst_b, max - 1, size))
+			{
+				while ((*lst_b)->pos != max - 1)
+					ra(lst_b, 2);
+			}
+			else{
+				while ((*lst_b)->pos != max - 1)
+					rra(lst_b, 2);
+			}
 			pa(lst_a, lst_b, 1);
 			size--;
 		}
-		else if (min_instruction(*lst_b, max, size))
-				ra(lst_b, 2);
-		else
-				rra(lst_b, 2);
+		// exit(0);
 	}
 }
-
-// int	get_max(t_list *lst, int *idx)
-// {
-// 	int max, i;
-
-// 	max = lst->content;
-// 	i = 0;
-// 	while (lst)
-// 	{
-// 		if (lst->content > max)
-// 		{
-// 			max = lst->content;
-// 			*idx = i;
-// 		}
-// 		i++;
-// 		lst = lst->next;
-// 	}
-// 	return max;
-// }
 
 void	sort_all(t_list **lst_a, t_list **lst_b, int size)
 {
@@ -152,5 +221,9 @@ void	sort_all(t_list **lst_a, t_list **lst_b, int size)
 		else
 			ra(lst_a, 1);	
 	}
-	ft_pa(lst_a, lst_b, size);
+	ft_pa(lst_a, lst_b);
 }
+
+	// 56 12/6
+// top[22, 34 , 234 ,4543, 566 343325, 56, 2334, 45456, 2323 , 455] => 12
+// 5 4 3 2 1 
