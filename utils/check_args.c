@@ -6,16 +6,16 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 22:24:05 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/01 22:24:16 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 20:02:39 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void check_args(char **args)
+void	check_args(char **args)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (args[++i])

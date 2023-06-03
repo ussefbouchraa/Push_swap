@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 04:15:34 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/01 14:53:05 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 19:59:07 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	sort_of_four(t_list **lst_a, t_list **lst_b, int min)
 	pa(lst_a, lst_b, 1);
 }
 
-
 void	sort_of_five(t_list **lst_a, t_list **lst_b, int min)
 {
 	if ((*lst_a)->next->next->next->content == min)
@@ -66,6 +65,7 @@ void	sort_of_five(t_list **lst_a, t_list **lst_b, int min)
 		sort_of_four(lst_a, lst_b, ft_min(*lst_a));
 	pa(lst_a, lst_b, 1);
 } 
+
 void	sort_all(t_list **lst_a, t_list **lst_b, int size)
 {
 	int chnk;

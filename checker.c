@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 21:02:35 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/03 02:15:57 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 17:33:40 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ void    exec_intrac(t_list **lst_a, t_list **lst_b, char *line)
         rra(lst_a, 0);
     else if (!ft_strcmp("rrb\n", line))
         rra(lst_b, 0);
-    else if (!ft_strcmp("rrr\n", line))
-        rrr(lst_a, lst_b, 0);
     else if (!ft_strcmp("pa\n", line))
         pa(lst_a, lst_b, 0);
     else if (!ft_strcmp("pb\n", line))
@@ -52,6 +50,8 @@ void    do_instructs(t_list **lst_a, t_list **lst_b)
     line = get_next_line(0);
     while (line)
     {
+        if (!ft_strcmp("rrr\n", line))
+            rrr(lst_a, lst_b, 0);
         exec_intrac(lst_a, lst_b, line);
         line = get_next_line(0);
         free(line);

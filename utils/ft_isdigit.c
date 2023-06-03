@@ -6,19 +6,18 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:26:27 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/21 00:24:49 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 20:27:35 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_isdigit(char *s)
+int    ft_isdigit(char *s)
 {
-
-    if (*s == '+' || *s == '-' )
+    if (*s == '+' || *s == '-')
         s++;
-    if(!*s)
-        return(0);
+    if (!*s)
+        return (0);
     while (*s)
     {
         if (!(*s >= '0' && *s <= '9'))
@@ -27,3 +26,4 @@ int ft_isdigit(char *s)
     }
     return (1);
 }
+

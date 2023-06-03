@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:26:59 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/18 16:39:09 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 20:03:21 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 long	ft_atoi(char *s)
 {
-	long res;
-	int sign;
+	long	res;
+	int		sign;
 
 	res = 0;
 	sign = 1;
-
 	if (*s == 32 || (*s >= 9 && *s <= 13))
 		s++;
 	if (*s == '-' || *s == '+')

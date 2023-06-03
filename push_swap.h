@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:49:37 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/03 00:03:15 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 17:36:12 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
 # endif
-
 
 typedef struct s_stack1
 {

@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:59:06 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/03 00:08:40 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 17:45:33 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int main(int ac, char **av)
 	char	**args;
 	int		words;
 	int 	i;
-
+	
 	lst_a = NULL;
 	lst_b = NULL;
 	
