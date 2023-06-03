@@ -6,12 +6,11 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:50:13 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/06 05:53:11 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:48:39 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 char *ft_strdup(const char *s)
 {

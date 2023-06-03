@@ -98,4 +98,4 @@ if status.stdout == 'OK\n':
     print(f"numbers: {yellow}")
     print(*nums, sep=' ')
 else:
-	print(red + 'KO' + reset)
+	print(f"{red}{status.stdout}{reset}")

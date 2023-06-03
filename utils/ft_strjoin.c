@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_issorted.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 22:56:31 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/03 02:17:37 by ybouchra         ###   ########.fr       */
+/*   Created: 2023/06/01 19:45:11 by ybouchra          #+#    #+#             */
+/*   Updated: 2023/06/01 19:45:28 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_issorted(t_list *lst)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	t_list *container;
-	int item;
-	
-	if (!lst || !lst->next)
-		return (1);
+	int		i;
+	int		j;
+	int		len;
+	char	*new;
 
-	while(lst->next)
+	i = 0;
+	j = 0;
+	if (!s1)
+		return (ft_strdup(s2));
+	len = (ft_strlen(s1) + ft_strlen(s2));
+	new = malloc((len * sizeof(char)) + 1);
+	if (!new)
+		return (NULL);
+	while (s1[i])
 	{
-		item = lst->content; 
-		
-		container = lst->next;
-		while(container)
-		{
-			if(item > container->content)
-			return(0);
-				
-			container = container->next;
-		}	
-		lst = lst->next;
+		new[i] = s1[i];
+		i++;
 	}
-	return(1);
-		
+	while (s2[j])
+		new[i++] = s2[j++];
+	new[i] = '\0';
+	free(s1);
+	return (new);
 }
-
-// [2 5 3]

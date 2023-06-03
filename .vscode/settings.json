@@ -7,6 +7,8 @@
         "algorithm": "c",
         "chrono": "c",
         "limits": "c",
-        "ratio": "c"
+        "ratio": "c",
+        "__locale": "c",
+        "cstring": "c"
     }
 }

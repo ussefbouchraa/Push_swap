@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 18:52:11 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/30 20:04:02 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/01 22:31:45 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void    rra(t_list **lst, int msg)
     t_list *container;
     t_list *last;
 
-    if (!lst)
+    if (!lst || !*lst || !(*lst)->next)
         return;
     container = *lst;
     while (container->next->next)

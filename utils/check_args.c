@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_issorted.c                                      :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 22:56:31 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/03 02:17:37 by ybouchra         ###   ########.fr       */
+/*   Created: 2023/06/01 22:24:05 by ybouchra          #+#    #+#             */
+/*   Updated: 2023/06/01 22:24:16 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_issorted(t_list *lst)
+void check_args(char **args)
 {
-	t_list *container;
-	int item;
-	
-	if (!lst || !lst->next)
-		return (1);
+	int i;
+	int j;
 
-	while(lst->next)
+	i = -1;
+	while (args[++i])
 	{
-		item = lst->content; 
-		
-		container = lst->next;
-		while(container)
+		if (!ft_isdigit(args[i]))
+			ft_clear(args);
+		if (!ft_valid_size(args[i]))
+			ft_clear(args);
+		j = i;
+		while (args[++j])
 		{
-			if(item > container->content)
-			return(0);
-				
-			container = container->next;
-		}	
-		lst = lst->next;
+			if (ft_atoi(args[i]) == ft_atoi(args[j]))
+				ft_clear(args);
+		}
 	}
-	return(1);
-		
 }
-
-// [2 5 3]
