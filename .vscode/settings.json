@@ -9,6 +9,7 @@
         "limits": "c",
         "ratio": "c",
         "__locale": "c",
-        "cstring": "c"
+        "cstring": "c",
+        "stdlib.h": "c"
     }
 }

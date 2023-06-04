@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 19:32:23 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/01 19:33:10 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 23:10:03 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,3 @@ char	*get_next_line(int fd)
 	saved = restln(saved);
 	return (line);
 }
-

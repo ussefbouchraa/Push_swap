@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 19:45:11 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/01 19:45:28 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 23:08:30 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strjoin(char *s1, char *s2)
 {
+	char	*new;
 	int		i;
 	int		j;
 	int		len;
-	char	*new;
 
 	i = 0;
 	j = 0;

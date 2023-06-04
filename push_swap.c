@@ -6,14 +6,13 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:59:06 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/03 17:45:33 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/04 00:45:15 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void instructs(t_list **lst_a, t_list **lst_b, int size)
+void	instructs(t_list **lst_a, t_list **lst_b, int size)
 {
 	if (!(ft_issorted(*lst_a)))
 	{
@@ -28,12 +27,11 @@ void instructs(t_list **lst_a, t_list **lst_b, int size)
 		else
 			sort_all(lst_a, lst_b, size);
 	}
-	
 }
 
-int get_min(t_list *lst)
+int	get_min(t_list *lst)
 {
-	int min;
+	int	min;
 
 	min = ft_max(lst);
 	while (lst)
@@ -45,14 +43,13 @@ int get_min(t_list *lst)
 	return (min);
 }
 
-void init_pos(t_list *lst_a)
+void	init_pos(t_list *lst_a)
 {
-	t_list *container;
-	t_list *loop;
-	int pos;
+	t_list	*container;
+	t_list	*loop;
+	int		pos;
 
 	pos = -1;
-
 	loop = lst_a;
 	while (loop)
 	{
@@ -60,31 +57,25 @@ void init_pos(t_list *lst_a)
 		while (container->content != get_min(lst_a))
 			container = container->next;
 		container->pos = ++pos;
-
-		loop = loop->next;
+	loop = loop->next;
 	}
 }
 
-void ll()
-{
-	system("leaks push_swap");
-}
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_list	*lst_a;
 	t_list	*lst_b;
 	char	**args;
 	int		words;
-	int 	i;
-	
+	int		i;
+
 	lst_a = NULL;
 	lst_b = NULL;
-	
 	if (ac < 2)
 		return (0);
 	words = nbr_args(av);
-	args = split_args(av, words); 
-	check_args(args); 
+	args = split_args(av, words);
+	check_args(args);
 	i = -1;
 	while (args[++i])
 	{
@@ -93,8 +84,7 @@ int main(int ac, char **av)
 	}
 	free(args);
 	init_pos(lst_a);
-	instructs(&lst_a, &lst_b, ft_lstsize(lst_a));		
+	instructs(&lst_a, &lst_b, ft_lstsize(lst_a));
 	free_lnkedlist(&lst_a);
 	free_lnkedlist(&lst_b);
 }
-

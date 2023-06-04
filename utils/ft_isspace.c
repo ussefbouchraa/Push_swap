@@ -6,13 +6,13 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:22:19 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/19 17:24:52 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 22:01:46 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_isspace(char *s)
+int	ft_isspace(char *s)
 {
 	while (*s && *s == ' ')
 		s++;

@@ -6,13 +6,13 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 05:27:54 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/09 17:31:47 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 22:15:09 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	*ft_free(int index, char **arr)
+void	*ft_free(int index, char **arr)
 {
 	while (--index)
 	{
@@ -26,6 +26,7 @@ int	nbr_of_word(char *str, char c)
 {
 	int	i;
 	int	words;
+
 	i = 0;
 	words = 0;
 	while (str[i])
@@ -37,7 +38,7 @@ int	nbr_of_word(char *str, char c)
 	return (words);
 }
 
-static	int	len_word(char *str, char c, int i)
+int	len_word(char *str, char c, int i)
 {
 	int	j;
 
@@ -61,8 +62,8 @@ char	**ft_split(const char *str, char c)
 	j = 0;
 	if (!str)
 		return (NULL);
-    nbrw = nbr_of_word((char *)str, c);
-    news = (char **)malloc((nbrw + 1) * sizeof(char *));
+	nbrw = nbr_of_word((char *)str, c);
+	news = (char **)malloc((nbrw + 1) * sizeof(char *));
 	if (!news)
 		return (NULL);
 	while (j < nbrw && str[i])

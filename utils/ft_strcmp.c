@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 23:40:54 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/02 23:41:23 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 23:06:01 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	ft_strcmp(char *s1, char *s2)
 	unsigned int	i;
 
 	i = 0;
-    while ((*s1 && *s2) && (*s1 == *s2))
-    {
-        s1++;
-        s2++;
-    }
-    return (*s1 - *s2);
+	while ((*s1 && *s2) && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
 }

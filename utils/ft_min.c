@@ -6,22 +6,22 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 23:42:07 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/22 23:45:03 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 22:11:00 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ft_min(t_list *lst)
+int	ft_min(t_list *lst)
 {
-    int min;
-    min = lst->content;
+	int	min;
 
-    while(lst)
-    {
-        if(lst->content < min)
-            min = lst->content;
-        lst = lst->next;
-    }
-    return(min);
+	min = lst->content;
+	while (lst)
+	{
+		if (lst->content < min)
+			min = lst->content;
+		lst = lst->next;
+	}
+	return (min);
 }

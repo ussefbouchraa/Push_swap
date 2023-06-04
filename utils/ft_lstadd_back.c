@@ -6,25 +6,25 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:25:52 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/05/31 22:46:32 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/03 22:03:21 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    t_list *container;
-    if (!new || !lst)
-        return;
+	t_list	*container;
 
-    if (!*lst)
-        *lst = new;
-    else
-    {
-        container = *lst;
-        while (container->next)
-            container = container->next;
-        container->next = new;
-    }
+	if (!new || !lst)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		container = *lst;
+		while (container->next)
+			container = container->next;
+		container->next = new;
+	}
 }
