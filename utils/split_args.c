@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 22:21:56 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/04 00:22:55 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/07 02:35:10 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,15 @@ char	**split_args(char **av, int words)
 int	ft_valid_size(char *arg)
 {
 	int	i;
-	int	len;
 
-	len = 0;
-	i = -1;
-	if (*arg == '+' || *arg == '-')
-	{
+	i = 0;
+	if (arg[i] == '+' || arg[i] == '-')
 		i++;
-		len++;
-	}
-	while (arg[++i] == '0')
-		len++;
-	if (arg[i])
-		arg = arg + len;
-	if (((ft_atoi(arg) > INT_MAX) || (ft_atoi(arg) < INT_MIN))
-		|| ft_strlen(arg) > 11)
+	while (arg[i] == '0')
+		i++;
+	if (ft_strlen(arg + i) > 11)
+		return (0);
+	if (ft_atoi(arg) > INT_MAX || ft_atoi(arg) < INT_MIN)
 		return (0);
 	return (1);
 }
