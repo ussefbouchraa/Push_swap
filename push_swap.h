@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:49:37 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/04 01:35:18 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/05 01:48:51 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void	sort_of_three(t_list **lst, int max, int min);
 void	sort_of_four(t_list **lst_a, t_list **lst_b, int min);
 void	sort_of_five(t_list **lst_a, t_list **lst_b, int min);
 void	sort_all(t_list **lst_a, t_list **lst_b, int size);
-void	ft_check_b(t_list **lst_b, t_list **lst_a, int chnk, int demi_chnk);
 void	ft_pa(t_list **lst_a, t_list **lst_b);
+int		min_instruction(t_list *lst_b, int max, int size);
 
 void	check_args(char **args);
 char	**split_args(char **av, int words);

@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 04:15:34 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/04 01:47:10 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/05 01:45:19 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	sort_all(t_list **lst_a, t_list **lst_b, int size)
 			pa(lst_b, lst_a, 2);
 			size--;
 			stack_b++;
-			ft_check_b(lst_b, lst_a, chnk, chnk - (one_chnk / 2));
+			if ((*lst_b)->pos <= chnk - (one_chnk / 2))
+				ra(lst_b, 2);
 			if (stack_b == chnk)
 				chnk += one_chnk;
 		}

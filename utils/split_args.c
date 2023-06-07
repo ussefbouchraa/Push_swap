@@ -6,7 +6,7 @@
 /*   By: ybouchra <ybouchra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 22:21:56 by ybouchra          #+#    #+#             */
-/*   Updated: 2023/06/07 02:35:10 by ybouchra         ###   ########.fr       */
+/*   Updated: 2023/06/07 05:04:02 by ybouchra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ int	ft_valid_size(char *arg)
 		i++;
 	while (arg[i] == '0')
 		i++;
-	if (ft_strlen(arg + i) > 11)
+	if (ft_strlen(arg + i) > 10)
 		return (0);
-	if (ft_atoi(arg) > INT_MAX || ft_atoi(arg) < INT_MIN)
+	if (ft_atoi(arg) < INT_MIN || ft_atoi(arg) > INT_MAX)
 		return (0);
 	return (1);
 }
